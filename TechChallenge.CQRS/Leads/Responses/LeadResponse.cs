@@ -16,5 +16,6 @@ namespace TechChallenge.Domain.Leads.Responses
         public string Postcode { get; set; }
         public string ContactNumber { get; set; }
         public string ContactEmail { get; set; }
+        public string Status { get; set; }
     }
 }

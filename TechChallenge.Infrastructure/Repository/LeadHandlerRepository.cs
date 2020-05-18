@@ -82,7 +82,7 @@ namespace TechChallenge.Infrastructure.Repository
                                     .FirstOrDefaultAsync();
             if (job != null)
             {
-                job.Price = Convert.ToInt32(price);
+                job.Price = (int)Convert.ToDouble(price);
                 _context.Update(job);
                 await _context.SaveChangesAsync();
             }

@@ -76,7 +76,8 @@ namespace TechChallenge.Infrastructure.Mapper
                 Price = jobs.Price.ToString(),
                 ContactEmail = jobs.ContactEmail,
                 ContactNumber = jobs.ContactPhone,
-                Postcode = jobs.Suburb.Postcode
+                Postcode = jobs.Suburb.Postcode,
+                Status = jobs.Status
             };
 
             return result;

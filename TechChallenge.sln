@@ -19,6 +19,10 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Infrastructure", "TechChallenge.Infrastructure\TechChallenge.Infrastructure.csproj", "{C073B3D4-122D-4930-8316-351967B51CFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Infrastructure.Tests", "TechChallenge.Infrastructure.Tests\TechChallenge.Infrastructure.Tests.csproj", "{A848C227-C095-4676-A64F-98DDBACF88E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Domain.Tests", "TechChallenge.Domain.Tests\TechChallenge.Domain.Tests.csproj", "{81D83C65-8ACF-483E-9EDA-B0B22540DE9C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{C073B3D4-122D-4930-8316-351967B51CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C073B3D4-122D-4930-8316-351967B51CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C073B3D4-122D-4930-8316-351967B51CFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A848C227-C095-4676-A64F-98DDBACF88E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A848C227-C095-4676-A64F-98DDBACF88E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A848C227-C095-4676-A64F-98DDBACF88E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A848C227-C095-4676-A64F-98DDBACF88E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D83C65-8ACF-483E-9EDA-B0B22540DE9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D83C65-8ACF-483E-9EDA-B0B22540DE9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D83C65-8ACF-483E-9EDA-B0B22540DE9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D83C65-8ACF-483E-9EDA-B0B22540DE9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

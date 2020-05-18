@@ -6,7 +6,7 @@ namespace TechChallenge.Domain.Leads.Responses
 {
     public class InvitedLeadsResponse
     {
-        public long Id { get; set; }
+        public int Id { get; set; }
         public string ContactName { get; set; }
         public DateTime CreatedDateTime { get; set; }
         public string Suburb { get; set; }
