@@ -41,6 +41,7 @@ namespace TechChallenge.WebApi
 
             // Adding Infrastructure Services
             services.AddRepository();
+            services.AddEmailService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using TechChallenge.Domain.Leads.Commands;
+using TechChallenge.Domain.Leads.Events;
+using TechChallenge.Domain.Leads.Models;
 using TechChallenge.Domain.Leads.Queries;
 
 namespace TechChallenge.WebApi.Controllers
@@ -44,9 +46,6 @@ namespace TechChallenge.WebApi.Controllers
         [HttpPost("new")]
         public async Task<IActionResult> AddNewLead([FromBody] AddNewLeadCommand command)
         {
-            // TODO : 
-            // 1. Create a viewModel for InvitedLead
-            // 2. Map the the viewModel to the command Object
             var result = await _mediator.Send(command);
             return CreatedAtAction(nameof(GetLead), new { id = result.Id }, result);
         }
@@ -56,6 +55,10 @@ namespace TechChallenge.WebApi.Controllers
         {
             var command = new AcceptLeadCommand(id);
             var result = await _mediator.Send(command);
+            if (result.Status == LeadStatusType.Accepted.ToString())
+            {
+                await _mediator.Publish(new SendEmailEvent("sales@techtest.com", $"Lead {id} is Accepted"));
+            }
             return result != null ? (IActionResult)Ok(result) : NotFound();
         }
 

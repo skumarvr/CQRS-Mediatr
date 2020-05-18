@@ -12,8 +12,10 @@
                   </div>
                 </mat-tab>
                 <mat-tab label="Accepted">
+                  <div id="mat-tabs" class="tabs-content-div" [@.disabled]="true">
                     <!-- Accepted Jobs -->
                     <accepted-jobs [acceptedJobList]="acceptedJobList"></accepted-jobs>
+                  </div>
                 </mat-tab>
               </mat-tab-group>
             </div>

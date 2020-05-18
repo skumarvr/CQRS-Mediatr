@@ -1,11 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import {MatDialogModule} from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,6 +17,8 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
 import { InvitedJobsComponent } from './invited-jobs/invited-jobs.component';
 import { AcceptedJobsComponent } from './accepted-jobs/accepted-jobs.component';
 import { FirstNamePipe } from './shared/pipes/first-name.pipe';
+import { EmptyJobComponent } from './empty-job/empty-job.component';
+import { MsgBusService } from './shared/services/msgBus.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { FirstNamePipe } from './shared/pipes/first-name.pipe';
     AcceptedJobsComponent,
     DashboardComponent,
     ConfirmationDialogComponent,
-    FirstNamePipe
+    FirstNamePipe,
+    EmptyJobComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,8 @@ import { FirstNamePipe } from './shared/pipes/first-name.pipe';
     
   ],
   providers: [
-    JobService
+    JobService,
+    MsgBusService,
   ],
   bootstrap: [AppComponent]
 })

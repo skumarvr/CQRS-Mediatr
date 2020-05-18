@@ -1,7 +1,7 @@
 $primary-color: #FF8C00;
 
-// Css class for Invited tab details div
-.invited-tab-details {
+// Css class for Accepted tab details div
+.accepted-tab-details {
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -21,7 +21,15 @@ $primary-color: #FF8C00;
 
 // Css class for Job details text
 .job-details-text {
-    margin: 10px;
+    font-family: Roboto;
+    font-size: 14px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: -0.05px;
+    color: #1e1e2d;
+    margin: 10px; 
 
     // Css style for icons
     mat-icon {
@@ -31,21 +39,9 @@ $primary-color: #FF8C00;
     }
 }
 
-.job-price-text {
-    margin: 10px 40px;
-}
-
-// Css style for Accept button
-.btn-accept {
-    width: 100px;
-    background-color: $primary-color;
-    border-radius: 0px;
-}
-
-// Css style for Decline button
-.btn-decline {
-    width: 100px;
-    margin-left: 10px;
-    background-color: #eaeaf0;
-    border-radius: 0px;
+// Css style for phone/email text
+.phone-email-text {
+    color: $primary-color;
+    font-weight: 500;
+    font-size: 15px;
 }

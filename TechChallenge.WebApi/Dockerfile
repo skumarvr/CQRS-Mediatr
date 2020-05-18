@@ -7,6 +7,9 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
+COPY ["TechChallenge.Data/TechChallenge.Data.csproj", "TechChallenge.Data/"]
+COPY ["TechChallenge.CQRS/TechChallenge.Domain.csproj", "TechChallenge.CQRS/"]
+COPY ["TechChallenge.Infrastructure/TechChallenge.Infrastructure.csproj", "TechChallenge.Infrastructure/"]
 COPY ["TechChallenge.WebApi/TechChallenge.WebApi.csproj", "TechChallenge.WebApi/"]
 RUN dotnet restore "TechChallenge.WebApi/TechChallenge.WebApi.csproj"
 COPY . .

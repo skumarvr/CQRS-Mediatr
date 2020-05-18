@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -73,6 +74,18 @@ namespace TechChallenge.Infrastructure.Repository
             }
 
             return new LeadStatusResponse { JobId = id, Status = "" };
+        }
+
+        public async Task UpdateLeadPrice(int id, string price)
+        {
+            var job = await _context.Jobs.Where(s => s.Id == id)
+                                    .FirstOrDefaultAsync();
+            if (job != null)
+            {
+                job.Price = Convert.ToInt32(price);
+                _context.Update(job);
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

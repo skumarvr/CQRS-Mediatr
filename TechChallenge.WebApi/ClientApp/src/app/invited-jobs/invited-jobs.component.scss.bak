@@ -22,7 +22,6 @@ $primary-color: #FF8C00;
 // Css class for Job details text
 .job-details-text {
     margin: 10px;
-
     // Css style for icons
     mat-icon {
         position: relative;

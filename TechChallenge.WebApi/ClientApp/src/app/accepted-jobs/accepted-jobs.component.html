@@ -1,32 +1,45 @@
-<div id="accepted-tab-details" class="accepted-tab-details" *ngFor="let job of acceptedJobList; let i = index">
+<ng-container *ngIf="acceptedJobList.length > 0; then showJobList; else showEmpty">
+</ng-container>
+
+<ng-template #showEmpty>
+  <div id="accepted-tab-details" class="accepted-tab-details">
+    <empty-job></empty-job>
+  </div>
+</ng-template>
+
+<ng-template #showJobList>
+  <div id="accepted-tab-details" class="accepted-tab-details" *ngFor="let job of acceptedJobList; let i = index">
     <mat-card>
-        <button mat-fab color="warn">
-            <span class="name-badge-text">{{ job.contactName.charAt(0) }}</span>
-        </button>
-        <span class="job-details-text job-contact-name">{{ job.contactName }}</span>
-        <span class="job-details-text">{{ job.createdDateTime | date: "longDate" }} @ {{ job.createdDateTime | date: "shortTime" }}</span>
+      <button mat-fab color="warn">
+        <span class="name-badge-text">{{ job.contactName.charAt(0) }}</span>
+      </button>
+      <span class="job-details-text job-contact-name">{{ job.contactName }}</span>
+      <span class="job-details-text">{{ job.createdDateTime | date: "longDate" }} @ {{ job.createdDateTime | date: "shortTime" }}</span>
     </mat-card>
     <mat-card>
-        <span class="job-details-text">
-            <mat-icon aria-hidden="false">location_on</mat-icon>{{job.suburb}} {{ job.postcode }} 
-        </span>
-        <span class="job-details-text">
-            <mat-icon aria-hidden="false">work_outline</mat-icon>{{ job.categoryName }}
-        </span>
-        <span class="job-details-text">Job ID: {{ job.jobId }}</span>
-        <span class="job-details-text">{{ job.price }} Lead Invitation</span>
+      <span class="job-details-text">
+        <mat-icon aria-hidden="false">location_on</mat-icon>{{job.suburb}} {{ job.postcode }}
+      </span>
+      <span class="job-details-text">
+        <mat-icon aria-hidden="false">work_outline</mat-icon>{{ job.categoryName }}
+      </span>
+      <span class="job-details-text">Job ID: {{ job.jobId }}</span>
+      <span class="job-details-text">{{ job.price }} Lead Invitation</span>
     </mat-card>
     <mat-card>
-        <span class="job-details-text phone-email-text">
-            <mat-icon aria-hidden="false">phone</mat-icon>
-            {{ job.contactNumber }}
-        </span>
-        <span class="job-details-text phone-email-text">
-            <mat-icon aria-hidden="false">mail_outline</mat-icon>
-            {{ job.contactEmail }}
-        </span>
+      <span class="job-details-text phone-email-text">
+        <mat-icon aria-hidden="false">phone</mat-icon>
+        {{ job.contactNumber }}
+      </span>
+      <span class="job-details-text phone-email-text">
+        <mat-icon aria-hidden="false">mail_outline</mat-icon>
+        {{ job.contactEmail }}
+      </span>
     </mat-card>
     <mat-card>
-        <span class="job-details-text">{{ job.description }}</span>
+      <span class="job-details-text">{{ job.description }}</span>
     </mat-card>
-</div>
+  </div>
+</ng-template>
+
+

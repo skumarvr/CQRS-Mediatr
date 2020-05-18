@@ -12,6 +12,7 @@ namespace TechChallenge.Domain.Leads
         Task<List<InvitedLeadsResponse>> GetLeadsWithNewStatus();
         Task<List<AcceptedLeadsResponse>> GetLeadsWithAcceptedStatus();
         Task<LeadStatusResponse> UpdateLeadStatus(int id, string status);
+        Task UpdateLeadPrice(int id, string price);
         Task<LeadResponse> GetLeadById(int id);
         Task<LeadResponse> AddNewLead(AddNewLeadCommand request);
     }

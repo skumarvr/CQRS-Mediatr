@@ -1,0 +1,11 @@
+<div id="empty-job-card">
+  <mat-card>
+    <div *ngIf="message===''">
+      <span class="empty-job-text">{{defaultMessage}}</span>
+    </div>
+
+    <div *ngIf="message!==''">
+      <span class="empty-job-text">{{message}}</span>
+    </div>
+  </mat-card>
+</div>
