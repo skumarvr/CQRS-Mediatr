@@ -4,7 +4,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FirstNamePipe implements PipeTransform {
   transform(value: string): string {
     if (!value) return 'no_name';
-    var firstName = value.substr(0, value.indexOf(" "));
+    var index = value.indexOf(" ")
+    var firstName = index == -1 ? value : value.substr(0, index);
     return firstName;
   }
 }

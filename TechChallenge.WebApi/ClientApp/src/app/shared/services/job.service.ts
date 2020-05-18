@@ -13,13 +13,11 @@ export class JobService {
     
     // Service method to retrieve Invited job list
     public getInvitedJobs(): Observable<IInvitedJobDetail[]> {
-        // return of(this.mockedInvitedJobList());
         return this.http.get<IInvitedJobDetail[]>(this.apiBaseUrl + '/TradieLead/invited');
     }
 
     // Service method to retrieve Invited job list
     public getAcceptedJobs(): Observable<IAcceptedJobDetail[]> {
-      // return of(this.mockedAcceptedJobList());
       return this.http.get<IAcceptedJobDetail[]>(this.apiBaseUrl + '/TradieLead/accepted');
     }
 
@@ -31,7 +29,7 @@ export class JobService {
 
     // Service method to Decline invitation
   public declineInvitation(id: number): Observable<any> {
-    console.log(this.apiBaseUrl + `TradieLead/accept/${id}`);
+    console.log(this.apiBaseUrl + `TradieLead/decline/${id}`);
     return this.http.patch(this.apiBaseUrl + `/TradieLead/decline/${id}`, {});
   }
 

@@ -19,6 +19,10 @@ import { AcceptedJobsComponent } from './accepted-jobs/accepted-jobs.component';
 import { FirstNamePipe } from './shared/pipes/first-name.pipe';
 import { EmptyJobComponent } from './empty-job/empty-job.component';
 import { MsgBusService } from './shared/services/msgBus.service';
+import { environment } from '../environments/environment';
+import { MockApiModule } from './mock-api/mock-api.module';
+
+let extraModules = environment.mockApi ? [MockApiModule] : [];
 
 @NgModule({
   declarations: [
@@ -40,7 +44,8 @@ import { MsgBusService } from './shared/services/msgBus.service';
     MatIconModule,
     HttpClientModule,
     NgxSpinnerModule,
-    MatDialogModule
+    MatDialogModule,
+    extraModules
   ],
   exports: [
     

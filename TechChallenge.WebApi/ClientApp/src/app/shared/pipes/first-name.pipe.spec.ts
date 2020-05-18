@@ -1,6 +1,6 @@
 import { FirstNamePipe } from './first-name.pipe';
 
-describe('Testing FirstNamePipe', () => {
+describe('FirstNamePipe', () => {
   it('create an instance', () => {
     let pipe = new FirstNamePipe();
     expect(pipe).toBeTruthy();
