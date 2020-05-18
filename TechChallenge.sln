@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.30104.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.WebApi", "TechChallenge.WebApi\TechChallenge.WebApi.csproj", "{6B7A6ABE-6015-4703-B8EF-C3CE0A9B539D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.WebApi.Tests", "TechChallenge.WebApi.Tests\TechChallenge.WebApi.Tests.csproj", "{EC4A77EB-103D-457B-8883-C72937005E98}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Domain", "TechChallenge.CQRS\TechChallenge.Domain.csproj", "{78E390EE-78DE-4EFC-984F-B5538F39ABFF}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Data", "TechChallenge.Data\TechChallenge.Data.csproj", "{FA64D765-AE52-4209-9FA6-00180775C080}"
@@ -18,8 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{D6E6
 	EndProjectSection
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{F2080B25-74DC-4609-B438-F7DCA8188B0B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestDb", "..\TestDb\TestDb.csproj", "{44465087-0548-4A85-88F5-B1DCF5DA8B30}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Infrastructure", "TechChallenge.Infrastructure\TechChallenge.Infrastructure.csproj", "{C073B3D4-122D-4930-8316-351967B51CFA}"
 EndProject
@@ -33,10 +29,6 @@ Global
 		{6B7A6ABE-6015-4703-B8EF-C3CE0A9B539D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B7A6ABE-6015-4703-B8EF-C3CE0A9B539D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B7A6ABE-6015-4703-B8EF-C3CE0A9B539D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EC4A77EB-103D-457B-8883-C72937005E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EC4A77EB-103D-457B-8883-C72937005E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EC4A77EB-103D-457B-8883-C72937005E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EC4A77EB-103D-457B-8883-C72937005E98}.Release|Any CPU.Build.0 = Release|Any CPU
 		{78E390EE-78DE-4EFC-984F-B5538F39ABFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{78E390EE-78DE-4EFC-984F-B5538F39ABFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78E390EE-78DE-4EFC-984F-B5538F39ABFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -49,9 +41,6 @@ Global
 		{F2080B25-74DC-4609-B438-F7DCA8188B0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2080B25-74DC-4609-B438-F7DCA8188B0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2080B25-74DC-4609-B438-F7DCA8188B0B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{44465087-0548-4A85-88F5-B1DCF5DA8B30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44465087-0548-4A85-88F5-B1DCF5DA8B30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44465087-0548-4A85-88F5-B1DCF5DA8B30}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C073B3D4-122D-4930-8316-351967B51CFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C073B3D4-122D-4930-8316-351967B51CFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C073B3D4-122D-4930-8316-351967B51CFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
