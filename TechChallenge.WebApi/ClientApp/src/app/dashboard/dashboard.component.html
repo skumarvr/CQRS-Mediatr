@@ -1,0 +1,25 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div id="mat-tabs" class="col-md-6 tabs-parent-div" [@.disabled]="true">
+              <mat-tab-group (selectedTabChange)="tabChanged($event)">
+                <mat-tab label="Invited">
+                  <div id="mat-tabs" class="tabs-content-div" [@.disabled]="true">
+                    <!-- Invited Jobs -->
+                    <invited-jobs [invitedJobList]="invitedJobList" (onAcceptClick)="acceptInvitation($event)"
+                                  (onDeclineClick)="declineInvitation($event)"></invited-jobs>
+                  </div>
+                </mat-tab>
+                <mat-tab label="Accepted">
+                    <!-- Accepted Jobs -->
+                    <accepted-jobs [acceptedJobList]="acceptedJobList"></accepted-jobs>
+                </mat-tab>
+              </mat-tab-group>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>
+<!-- Spinner -->
+<ngx-spinner></ngx-spinner>

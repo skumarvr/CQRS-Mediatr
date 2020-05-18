@@ -1,0 +1,26 @@
+<div id="invited-tab-details" class="invited-tab-details" *ngFor="let job of invitedJobList; let i = index">
+    <mat-card>
+        <button mat-fab color="warn">
+            <span class="name-badge-text">{{ job.contactName.charAt(0) }}</span>
+        </button>
+        <span class="job-details-text job-contact-name">{{ job.contactName | firstName }}</span>
+        <span class="job-details-text">{{ job.createdDateTime | date: "longDate" }} @ {{ job.createdDateTime | date: "shortTime" }}</span>
+    </mat-card>
+    <mat-card>
+        <span class="job-details-text">
+            <mat-icon aria-hidden="false">location_on</mat-icon>{{job.suburb}} {{ job.postcode }} 
+        </span>
+        <span class="job-details-text">
+            <mat-icon class="icon" aria-hidden="false">work_outline</mat-icon>{{ job.categoryName }}
+        </span>
+        <span class="job-details-text">Job ID: {{ job.id }}</span>
+    </mat-card>
+    <mat-card>
+        <span class="job-details-text">{{ job.description }}</span>
+    </mat-card>
+    <mat-card>
+        <button mat-raised-button color="primary" (click)="onAccept(job.id)" class="btn-accept">Accept</button>
+        <button mat-stroked-button (click)="onDecline(job.id)" class="btn-decline">Decline</button>
+        <span class="job-price-text"><strong>{{ job.price | currency }}</strong> Lead Invitation</span>
+    </mat-card>
+</div>

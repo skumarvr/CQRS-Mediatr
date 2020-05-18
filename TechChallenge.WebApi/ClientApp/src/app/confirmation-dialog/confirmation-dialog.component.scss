@@ -1,0 +1,29 @@
+$primary-color: #FF8C00;
+
+// Css class for Dialog title text
+.dialog-title-text {
+    height: 20px;
+    font-family: Roboto;
+    font-size: 20px;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: -0.04px;
+    color: #495055;
+}
+
+// Css class for Dialog Content div
+.dialog-content-div {
+    padding-top: 10px;
+}
+
+// Css class for Dialog action buttons
+.action-buttons-panel {
+    float: right;
+}
+
+// Css class for Yes button
+.btn-yes {
+    background-color: $primary-color;
+}

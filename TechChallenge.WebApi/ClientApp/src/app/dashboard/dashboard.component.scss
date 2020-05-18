@@ -1,0 +1,52 @@
+$primary-color: #FF8C00;
+
+// Css class for Main content
+.main-content {
+    margin: 20px;
+}
+
+// Css class for tabs parent div
+.tabs-parent-div {
+  height: 900px;
+  // min-height: 800px;
+  border: solid 1px #e4e7eb;
+  border-radius: 3px;
+  background-color: #eaeaf0;
+  padding-top: 10px;
+
+  .tabs-div {
+    background-color: #ffffff;
+  }
+
+  ::ng-deep .mat-tab-label-container {
+    display: block !important;
+  }
+}
+
+  .tabs-content-div {
+    height: 820px;
+    border: solid 1px #e4e7eb;
+    border-radius: 3px;
+    background-color: #eaeaf0;
+    padding-top: 10px;
+    overflow-y: scroll;
+  }
+
+  /***************** Css class for Scroll bar start ****************/
+  #mat-tabs::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+  }
+
+  #mat-tabs::-webkit-scrollbar {
+    width: 7px;
+    background-color: #F5F5F5;
+  }
+
+  #mat-tabs::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: $primary-color;
+  }
+  /***************** Css class for Scroll bar end ****************/
