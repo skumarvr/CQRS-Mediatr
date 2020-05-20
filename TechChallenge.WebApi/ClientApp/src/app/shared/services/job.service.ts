@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { of } from 'rxjs';
 import { IInvitedJobDetail } from '../viewmodels/job-detail-invited';
 import { IAcceptedJobDetail } from '../viewmodels/job-detail-accepted';
 import { HttpClient } from '@angular/common/http';
@@ -8,29 +7,32 @@ import { AppConfig } from '../../app.config';
 
 @Injectable()
 export class JobService {
-    apiBaseUrl: string = AppConfig.apiBaseUrl;
-    constructor(private http: HttpClient) { }
+  apiBaseUrl: string = AppConfig.apiBaseUrl;
+
+  public constructor(private http: HttpClient) {
+  }
     
     // Service method to retrieve Invited job list
-    public getInvitedJobs(): Observable<IInvitedJobDetail[]> {
-        return this.http.get<IInvitedJobDetail[]>(this.apiBaseUrl + '/TradieLead/invited');
-    }
+  public getInvitedJobs(): Observable<IInvitedJobDetail[]> {
+    console.log(this.apiBaseUrl + 'TradieLead/invited')
+    return this.http.get<IInvitedJobDetail[]>(this.apiBaseUrl + 'TradieLead/invited');
+  }
 
     // Service method to retrieve Invited job list
     public getAcceptedJobs(): Observable<IAcceptedJobDetail[]> {
-      return this.http.get<IAcceptedJobDetail[]>(this.apiBaseUrl + '/TradieLead/accepted');
+      return this.http.get<IAcceptedJobDetail[]>(this.apiBaseUrl + 'TradieLead/accepted');
     }
 
     // Service method to Accept invitation
     public acceptInvitation(id: number): Observable<any> {
       console.log(this.apiBaseUrl + `TradieLead/accept/${id}`);
-      return this.http.patch(this.apiBaseUrl + `/TradieLead/accept/${id}`, {});
+      return this.http.patch(this.apiBaseUrl + `TradieLead/accept/${id}`, {});
     }
 
     // Service method to Decline invitation
   public declineInvitation(id: number): Observable<any> {
     console.log(this.apiBaseUrl + `TradieLead/decline/${id}`);
-    return this.http.patch(this.apiBaseUrl + `/TradieLead/decline/${id}`, {});
+    return this.http.patch(this.apiBaseUrl + `TradieLead/decline/${id}`, {});
   }
 
     private mockedInvitedJobList(): IInvitedJobDetail[] {

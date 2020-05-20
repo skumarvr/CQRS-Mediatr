@@ -1,8 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using Microsoft.Extensions.DependencyInjection;
 using TechChallenge.Data;
 using TechChallenge.Domain.Leads;
 using TechChallenge.Domain.ServiceHandlers;

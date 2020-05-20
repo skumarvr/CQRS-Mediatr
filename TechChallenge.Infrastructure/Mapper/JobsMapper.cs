@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using TechChallenge.Data.EntityModels;
 using TechChallenge.Domain.Leads.Commands;
 using TechChallenge.Domain.Leads.Models;
@@ -13,15 +12,16 @@ namespace TechChallenge.Infrastructure.Mapper
     {
         public static List<InvitedLeadsResponse> ToInvitedLeadsResponse(this List<Jobs> jobs)
         {
-            var result = jobs.Select(x => new InvitedLeadsResponse() {
-                        Id = x.Id,
-                        ContactName = x.ContactName,
-                        CreatedDateTime = x.CreatedAt.DateTime,
-                        Suburb = x.Suburb.Name,
-                        CategoryName = x.Category.Name,
-                        Description = x.Description,
-                        Price = x.Price.ToString()
-                    }).ToList();
+            var result = jobs.Select(x => new InvitedLeadsResponse()
+            {
+                Id = x.Id,
+                ContactName = x.ContactName,
+                CreatedDateTime = x.CreatedAt.DateTime,
+                Suburb = x.Suburb.Name,
+                CategoryName = x.Category.Name,
+                Description = x.Description,
+                Price = x.Price.ToString()
+            }).ToList();
 
             return result;
         }

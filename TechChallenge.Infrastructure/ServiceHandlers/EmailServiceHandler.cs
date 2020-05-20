@@ -1,10 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using TechChallenge.Domain.ServiceHandlers;
 
 namespace TechChallenge.Infrastructure.ServiceHandlers
 {
-    public class EmailServiceHandler:IEmailServiceHandler
+    public class EmailServiceHandler : IEmailServiceHandler
     {
         public Task SendEmail(string toSender, string message)
         {

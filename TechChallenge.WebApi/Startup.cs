@@ -30,7 +30,7 @@ namespace TechChallenge.WebApi
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/dist/Lead-Management-UI";
+                configuration.RootPath = "ClientApp/dist";
             });
 
             // Adding Domain Services
@@ -59,6 +59,7 @@ namespace TechChallenge.WebApi
                 app.UseHsts();
             }
 
+            // Disabled for using only port:80
             // app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
@@ -85,9 +86,8 @@ namespace TechChallenge.WebApi
                 if (env.IsDevelopment())
                 {
                     Console.WriteLine("Starting AngularCliServer...");
-                    spa.Options.StartupTimeout = new TimeSpan(0, 5, 0);
                     spa.UseAngularCliServer(npmScript: "start");
-                    // spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/dashboard");
+                    // spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
                 }
             });
         }

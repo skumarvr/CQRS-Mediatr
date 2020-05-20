@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TechChallenge.Data;
-using TechChallenge.Data.EntityModels;
 using TechChallenge.Domain.Leads;
 using TechChallenge.Domain.Leads.Commands;
 using TechChallenge.Domain.Leads.Models;
@@ -35,7 +34,7 @@ namespace TechChallenge.Infrastructure.Repository
                                     .Include(x => x.Suburb)
                                     .Include(x => x.Category)
                                     .FirstOrDefaultAsync();
-            if (jobs == null) return null;                
+            if (jobs == null) return null;
             return JobsMapper.ToLeadResponse(jobs);
         }
 

@@ -1,5 +1,4 @@
 using NUnit.Framework;
-using System;
 using System.Linq;
 using System.Threading.Tasks;
 using TechChallenge.Domain.Leads.Models;
