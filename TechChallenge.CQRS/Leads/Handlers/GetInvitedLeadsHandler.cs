@@ -1,4 +1,6 @@
 ﻿using MediatR;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -10,16 +12,28 @@ namespace TechChallenge.Domain.Leads.Handlers
     public class GetInvitedLeadsHandler : IRequestHandler<GetInvitedLeadsQuery, List<InvitedLeadsResponse>>
     {
         readonly private ILeadHandlerRepository _repository;
+        readonly private ILogger<GetInvitedLeadsHandler> _logger;
 
-        public GetInvitedLeadsHandler(ILeadHandlerRepository repository)
+        public GetInvitedLeadsHandler(ILeadHandlerRepository repository, ILogger<GetInvitedLeadsHandler> logger)
         {
             _repository = repository;
+            _logger = logger;
         }
 
         public async Task<List<InvitedLeadsResponse>> Handle(GetInvitedLeadsQuery request, CancellationToken cancellationToken)
         {
-            var response = await _repository.GetLeadsWithNewStatus();
-            return response;
+            try
+            {
+                _logger.LogInformation("Get all Invited leads...");
+                var response = await _repository.GetLeadsWithNewStatus();
+                _logger.LogInformation("Get all Invited leads");
+                return response;
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to Get all Invited leads!!!");
+                throw;
+            }
         }
     }
 }

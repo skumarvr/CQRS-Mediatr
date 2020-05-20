@@ -8,11 +8,11 @@ namespace TechChallenge.Domain.Leads.Queries
 {
     public class GetLeadByIdQuery : IRequest<LeadResponse>
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
         public GetLeadByIdQuery(int id)
         {
-            this.id = id;
+            this.Id = id;
         }
     }
 }

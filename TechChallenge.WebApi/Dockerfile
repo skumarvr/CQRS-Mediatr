@@ -3,9 +3,14 @@
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
 EXPOSE 80
-EXPOSE 443
+COPY "TechChallenge.WebApi/hipages-techtest-dev-cert.pfx" ./
+RUN curl -sL https://deb.nodesource.com/setup_10.x |  bash -
+RUN apt-get install -y nodejs
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+RUN curl -sL https://deb.nodesource.com/setup_10.x |  bash -
+RUN apt-get install -y nodejs
+
 WORKDIR /src
 COPY ["TechChallenge.Data/TechChallenge.Data.csproj", "TechChallenge.Data/"]
 COPY ["TechChallenge.CQRS/TechChallenge.Domain.csproj", "TechChallenge.CQRS/"]

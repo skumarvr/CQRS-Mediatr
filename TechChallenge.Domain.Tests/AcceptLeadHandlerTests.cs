@@ -1,3 +1,5 @@
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Abstractions;
 using NUnit.Framework;
 using System;
 using System.Linq;
@@ -13,6 +15,12 @@ namespace TechChallenge.Domain.Tests
 {
     public class AcceptLeadHandlerTests
     {
+        public ILogger<T> CreateLogger<T>()
+        {
+            using var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+            return loggerFactory.CreateLogger<T>();
+        }
+
         [SetUp]
         public void Setup()
         {
@@ -24,11 +32,11 @@ namespace TechChallenge.Domain.Tests
             var dbContext = await InMemoryMockDbContext.GetDatabaseContext();
             
             var leadHandlerRepository = new LeadHandlerRepository(dbContext);
-            
+ 
             var leads = await leadHandlerRepository.GetLeadsWithNewStatus();
             var job = leads.Where(x => (Convert.ToInt32(x.Price) < 500)).First();
 
-            var leadHandler = new AcceptLeadHandler(leadHandlerRepository);
+            var leadHandler = new AcceptLeadHandler(leadHandlerRepository, CreateLogger< AcceptLeadHandler>());
 
             var cmd = new AcceptLeadCommand(job.Id);
             var resp = await leadHandler.Handle(cmd, new CancellationToken());
@@ -52,7 +60,7 @@ namespace TechChallenge.Domain.Tests
             var leads = await leadHandlerRepository.GetLeadsWithNewStatus();
             var job = leads.Where(x => (Convert.ToInt32(x.Price) > 500)).First();
 
-            var leadHandler = new AcceptLeadHandler(leadHandlerRepository);
+            var leadHandler = new AcceptLeadHandler(leadHandlerRepository, CreateLogger<AcceptLeadHandler>());
 
             var cmd = new AcceptLeadCommand(job.Id);
             var resp = await leadHandler.Handle(cmd, new CancellationToken());

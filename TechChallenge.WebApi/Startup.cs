@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 using System.Reflection;
 using TechChallenge.Data.Configuration;
 using TechChallenge.Domain.Configuration;
@@ -29,7 +30,7 @@ namespace TechChallenge.WebApi
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
-                configuration.RootPath = "ClientApp/dist";
+                configuration.RootPath = "ClientApp/dist/Lead-Management-UI";
             });
 
             // Adding Domain Services
@@ -58,7 +59,7 @@ namespace TechChallenge.WebApi
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {
@@ -83,8 +84,10 @@ namespace TechChallenge.WebApi
 
                 if (env.IsDevelopment())
                 {
-                    // spa.UseAngularCliServer(npmScript: "start");
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                    Console.WriteLine("Starting AngularCliServer...");
+                    spa.Options.StartupTimeout = new TimeSpan(0, 5, 0);
+                    spa.UseAngularCliServer(npmScript: "start");
+                    // spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/dashboard");
                 }
             });
         }

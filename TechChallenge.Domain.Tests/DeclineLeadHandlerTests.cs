@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using Microsoft.Extensions.Logging;
+using NUnit.Framework;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,6 +13,12 @@ namespace TechChallenge.Domain.Tests
 {
     public class DeclineLeadHandlerTests
     {
+        public ILogger<T> CreateLogger<T>()
+        {
+            using var loggerFactory = LoggerFactory.Create(builder => builder.AddConsole());
+            return loggerFactory.CreateLogger<T>();
+        }
+
         [SetUp]
         public void Setup()
         {
@@ -27,7 +34,7 @@ namespace TechChallenge.Domain.Tests
             var leads = await leadHandlerRepository.GetLeadsWithNewStatus();
             var job = leads.First();
 
-            var leadHandler = new DeclineLeadHandler(leadHandlerRepository);
+            var leadHandler = new DeclineLeadHandler(leadHandlerRepository, CreateLogger<DeclineLeadHandler>());
 
             var cmd = new DeclineLeadCommand(job.Id);
             var resp = await leadHandler.Handle(cmd, new CancellationToken());
