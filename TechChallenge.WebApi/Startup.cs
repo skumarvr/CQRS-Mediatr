@@ -1,13 +1,12 @@
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
-using System.Reflection;
+using System.Linq;
 using TechChallenge.Data.Configuration;
 using TechChallenge.Domain.Configuration;
 using TechChallenge.Infrastructure.Configuration;
@@ -23,9 +22,21 @@ namespace TechChallenge.WebApi
 
         public IConfiguration Configuration { get; }
 
+        private void LogConnStr(string connStr)
+        {
+            var maskedConnStrArray = connStr.Split(';').Where(str => !str.Contains("password", StringComparison.OrdinalIgnoreCase)).ToArray();
+            Console.WriteLine($"Database Connection Str : {String.Join(';', maskedConnStrArray)}");
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connStr = Configuration["ConnectionStr"];
+            Console.WriteLine("\n ---------------------------------");
+            LogConnStr(connStr);
+            Console.WriteLine($"Environment : {Configuration["ENVIRONMENT"]}");
+            Console.WriteLine("---------------------------------\n");
+
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -38,7 +49,10 @@ namespace TechChallenge.WebApi
             services.AddDomainServices();
 
             // Adding Data Services
-            services.AddDatabase(Configuration.GetConnectionString("HipagesDatabase"));
+            services.AddDatabase(connStr);
+
+            // Adding Data Services
+            // services.AddDatabase(Configuration.GetConnectionString("HipagesDatabase"));
 
             // Adding Infrastructure Services
             services.AddRepository();
@@ -60,7 +74,7 @@ namespace TechChallenge.WebApi
             }
 
             // Disabled for using only port:80
-            // app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
             app.UseStaticFiles();
             if (!env.IsDevelopment())
             {

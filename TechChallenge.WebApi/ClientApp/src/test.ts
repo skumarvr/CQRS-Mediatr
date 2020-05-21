@@ -7,6 +7,11 @@ import {
   platformBrowserDynamicTesting
 } from '@angular/platform-browser-dynamic/testing';
 
+export const environment = {
+  production: false,
+  mockApi: true
+};
+
 declare const require: {
   context(path: string, deep?: boolean, filter?: RegExp): {
     keys(): string[];

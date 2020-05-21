@@ -5,9 +5,11 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=https://+:443;http://+:80
-      - ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.dotnet/https/cert-aspnetcore.pfx
-      - ASPNETCORE_Kestrel__Certificates__Default__Password=hipages
+      - ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.aspnet/https/TechChallenge.WebApi.pfx
+      - ASPNETCORE_Kestrel__Certificates__Default__Password=password
       - TechChallenge_ConnectionStr=server=techsql;port=3306;user=root;password=hipages;database=hipages;
     ports:
       - "80"
       - "443"
+    volumes:
+      - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro

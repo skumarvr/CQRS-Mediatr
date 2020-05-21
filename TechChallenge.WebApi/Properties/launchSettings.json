@@ -12,7 +12,8 @@
       "commandName": "IISExpress",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "TechChallenge_ConnectionStr": "server=techsql;port=3306;user=root;password=hipages;database=hipages;"
       }
     },
     "TechChallenge.WebApi": {
@@ -27,6 +28,10 @@
       "commandName": "Docker",
       "launchBrowser": true,
       "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "environmentVariables": {
+        "ENVIRONMENT": "Development",
+        "TechChallenge_ConnectionStr": "server=techsql;port=3306;user=root;password=hipages;database=hipages"
+      },
       "publishAllPorts": true,
       "useSSL": true
     }

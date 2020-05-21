@@ -9,10 +9,13 @@ services:
       dockerfile: TechChallenge.WebApi/Dockerfile
     ports:
       - "8090:80"
+      - "8091:443"
     depends_on:
         - techchallenge.mysql
     networks:
         - techchallenge.network
+    volumes:
+        - ./docker/cert:/root/.dotnet/https:ro
 
   techchallenge.mysql:
     container_name: techsql
@@ -31,3 +34,5 @@ services:
 networks:
   techchallenge.network:
     driver: bridge
+
+

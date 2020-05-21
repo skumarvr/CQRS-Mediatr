@@ -1,9 +1,11 @@
 import { TestBed, inject, fakeAsync, tick } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { JobService } from './job.service';
+import { AppConfig } from '../../app.config';
 
 describe('JobService', () => {
   beforeEach(() => {
+    AppConfig.apiBaseUrl = 'https://localhost:44392/api/';
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [JobService]

@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Domain", "Tec
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Data", "TechChallenge.Data\TechChallenge.Data.csproj", "{FA64D765-AE52-4209-9FA6-00180775C080}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{D6E6C613-36F7-48D9-9EAB-B87B56DB1853}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mysql", "Mysql", "{D6E6C613-36F7-48D9-9EAB-B87B56DB1853}"
 	ProjectSection(SolutionItems) = preProject
 		docker\mysql\db_init.mysql = docker\mysql\db_init.mysql
 		docker\mysql\init.sql = docker\mysql\init.sql
@@ -19,9 +19,14 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Infrastructure", "TechChallenge.Infrastructure\TechChallenge.Infrastructure.csproj", "{C073B3D4-122D-4930-8316-351967B51CFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Infrastructure.Tests", "TechChallenge.Infrastructure.Tests\TechChallenge.Infrastructure.Tests.csproj", "{A848C227-C095-4676-A64F-98DDBACF88E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Infrastructure.Tests", "TechChallenge.Infrastructure.Tests\TechChallenge.Infrastructure.Tests.csproj", "{A848C227-C095-4676-A64F-98DDBACF88E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TechChallenge.Domain.Tests", "TechChallenge.Domain.Tests\TechChallenge.Domain.Tests.csproj", "{81D83C65-8ACF-483E-9EDA-B0B22540DE9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechChallenge.Domain.Tests", "TechChallenge.Domain.Tests\TechChallenge.Domain.Tests.csproj", "{81D83C65-8ACF-483E-9EDA-B0B22540DE9C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Certificates", "Certificates", "{04125751-3595-41A2-BD39-04756886736D}"
+	ProjectSection(SolutionItems) = preProject
+		docker\cert\cert-aspnetcore.pfx = docker\cert\cert-aspnetcore.pfx
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
