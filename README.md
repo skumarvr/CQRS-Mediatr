@@ -1,1 +1,0 @@
-"# CQRS-Mediatr" 
