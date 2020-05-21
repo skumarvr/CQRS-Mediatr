@@ -57,6 +57,7 @@ Implemented the Invited and the Accepted tab. Invited tab displays all leads in 
 
 ### Execution steps
 1. Copy the folder 'Hipages-TechChallenge'
+2. Ensure 'cert' folder is present in copied folder. If 'cert' folder is not present, please create the folder and copy a certificate file with the name 'cert-aspnetcore.pfx'. The password for the certificate should be 'hipages'
 2. Within the folder execute 
    - 'docker-compose up'
 3. In the browser, open 'https://localhost:8091/dashboard'. (Sometimes, page not found may error, give in a minute and click refresh)
