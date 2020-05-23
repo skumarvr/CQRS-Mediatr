@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Serilog;
 using System;
 using System.Linq;
 using TechChallenge.Data.Configuration;
@@ -25,17 +26,19 @@ namespace TechChallenge.WebApi
         private void LogConnStr(string connStr)
         {
             var maskedConnStrArray = connStr.Split(';').Where(str => !str.Contains("password", StringComparison.OrdinalIgnoreCase)).ToArray();
-            Console.WriteLine($"Database Connection Str : {String.Join(';', maskedConnStrArray)}");
+            Log.Information($"Database Connection Str : {String.Join(';', maskedConnStrArray)}");
         }
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddLogging(loggingBuilder => loggingBuilder.AddSerilog(dispose: true));
+
             string connStr = Configuration["ConnectionStr"];
-            Console.WriteLine("\n ---------------------------------");
+            Log.Information("---------------------------------");
             LogConnStr(connStr);
-            Console.WriteLine($"Environment : {Configuration["ENVIRONMENT"]}");
-            Console.WriteLine("---------------------------------\n");
+            Log.Information($"Environment : {Configuration["ENVIRONMENT"]}");
+            Log.Information("---------------------------------");
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory
