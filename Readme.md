@@ -4,7 +4,11 @@ Create a single page application (SPA) using Angular9, .Net Core Web API, EF Cor
 
 ## Solution
 
-Implemented two tabs, Invited and the Accepted. Invited tab displays all leads in the new status. Accepted tab displays all leads in the accepted status. 
+Implemented two tabs (Invited and the Accepted) using Material Design components for Angular. 
+- Invited tab displays all leads in the new status. 
+- Accepted tab displays all leads in the accepted status.
+- On clicking the 'Accept' button in the the Invited tab, the lead moves to Accepted tab.
+- On clicking the 'Decline' button in the the Invited tab, the lead gets deleted.
 
 ### Features implemented
 1. CQRS using MediatR. Simpler implementation using a single database as the command sink and the query sink.
