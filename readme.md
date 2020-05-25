@@ -1,19 +1,16 @@
-# hipages Tech Challenge
+Tech Challenge
 
 ## The Task
 
-Your task is to create a lead management UI for a tradie.
-This should be presented as a single page application (SPA) using a modern JS framework of your choice, backed by .Net Core Web API and using database of your choice (SQL or NoSQL).
+Task is to create a single page application (SPA) using Angular9, .Net Core Web API, EF Core 6 and MySQL.
 
 ## Solution
 
-Implemented the Invited and the Accepted tab. Invited tab displays all leads in the new status. Accepted tab displays all leads in the accepted status. 
+Implemented two tabs, Invited and the Accepted. Invited tab displays all leads in the new status. Accepted tab displays all leads in the accepted status. 
 
 ### Features implemented
-1. If the Price is higher than $500, then 10% discount needs to be applied to the price. 
-2. After accepting the lead email notification is sent to sales (sales@techtest.com). Actual email is not sent, I just log the event in the email handler class
-3. CQRS using MediatR. Simpler implementation using a single database as the command sink and the query sink.
-4. Following DDD principles for business logic (Domain Driven Design)
+1. CQRS using MediatR. Simpler implementation using a single database as the command sink and the query sink.
+2. Following DDD principles for business logic (Domain Driven Design)
 
 ### Design
 
@@ -56,13 +53,12 @@ Implemented the Invited and the Accepted tab. Invited tab displays all leads in 
 6. Used the provided boiler plate as the base
 
 ### Execution steps
-1. Copy the folder 'Hipages-TechChallenge'
-2. Ensure 'cert' folder is present in copied folder. If 'cert' folder is not present, please create the folder and copy a certificate file with the name 'cert-aspnetcore.pfx'. The password for the certificate should be 'hipages'
+1. Copy the contents to a folder 'TechChallenge'
+2. Copy the certificate file to the 'cert' folder. 
+   - Default settings - certificate file should be 'cert-aspnetcore.pfx' with password 'hipages'
+   - Custom settings - Update the docker file "docker-compose.override.yml" with the certificate name and password.
+     - ASPNETCORE_Kestrel__Certificates__Default__Path=/root/.dotnet/https/<certificate_file_name>
+     - ASPNETCORE_Kestrel__Certificates__Default__Password=<password_for_the_certificate>
 2. Within the folder execute 
    - 'docker-compose up'
 3. In the browser, open 'https://localhost:8091/dashboard'. (Sometimes, page not found may error, give in a minute and click refresh)
-
-
-
-
-
