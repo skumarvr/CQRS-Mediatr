@@ -1,0 +1,1 @@
+Copy the certificate file and rename it as 'cert-aspnetcore.pfx' file. This is required for the application to run in https mode.
