@@ -1,8 +1,6 @@
-Tech Challenge
+# Tech Challenge
 
-## The Task
-
-Task is to create a single page application (SPA) using Angular9, .Net Core Web API, EF Core 6 and MySQL.
+Create a single page application (SPA) using Angular9, .Net Core Web API, EF Core 6 and MySQL.
 
 ## Solution
 
