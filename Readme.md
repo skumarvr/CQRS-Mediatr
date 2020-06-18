@@ -1,6 +1,5 @@
-# Tech Challenge
 
-Create a single page application (SPA) using Angular9, .Net Core Web API, EF Core 6 and MySQL.
+A single page application (SPA) using Angular9, .Net Core Web API, EF Core 6 and MySQL, deployed using docker.
 
 ## Solution
 
